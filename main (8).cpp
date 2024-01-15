@@ -1,0 +1,46 @@
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    string kelas;
+    int jumlah;
+    
+    cout << "Masukkan kelas tiket (Ekonomi/Bisnis/Eksekutif): ";
+    cin >> kelas;
+
+    cout << "Masukkan jumlah tiket: ";
+    cin >> jumlah;
+
+    int harga;
+
+    switch (kelas[0]) {
+        case 'E':
+            harga = 100000;
+            break;
+        case 'B':
+            harga = 200000;
+            break;
+        case 'J':
+            harga = 300000;
+            break;
+        default:
+            cout << "Kelas tiket tidak valid." << endl;
+            return 1;
+    }
+
+    int total= harga * jumlah;
+
+    if (total> 500000) {
+        total *= 10/100;
+    } else if (total > 300000) {
+        total *= 5/100;
+    } else if (total > 200000) {
+        total*= 2/100;
+    }
+
+    cout << "Total harga tiket: " << total << " rupiah" << endl;
+
+    return 0;
+}
